@@ -2,7 +2,4 @@ node_modules
 .env
 yarn.lock
 
-tmp/*
-!tmp/.gitkeep
-
 dist

@@ -29,15 +29,25 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [React Native](https://facebook.github.io/react-native/)
 - [Expo](https://expo.io/)
 
-## 💻 Projeto
+## :computer: Projeto
 
 O **Be The Hero** é um projeto que visa conectar pessoas interessadas em ajudar ONG's (Organizações não governamentais) de forma monetária.
 
-## 🔖 Layout
+## :bulb: Modificações
+
+1. Quando o usuário estiver logado e acessando o login, ele será redirecionado para o perfil novamente
+2. Se o usuário não estiver logado e acessar a rota 'perfil', ele será redirecionado para a tela inicial
+3. Envie um email para a ONG com o ID de autenticação após registrar o mesmo
+4. Corrigido o erro de identificação corrigido (anteriormente era possível gerar duas identificações idênticas)
+5. Tema Escuro e Tema Claro, tanto na Web quanto em dispositivos móveis
+6. Front-end responsivo
+7. Alertas personalizados
+
+## :bookmark: Layout
 
 Você pode visualizar o layout do projeto no formato através [desse link](https://www.figma.com/file/2C2yvw7jsCOGmaNUDftX9n/Be-The-Hero---OmniStack-11?node-id=37%3A394). Lembrando que você irá precisar ter uma conta no [Figma](http://figma.com/).
 
-## 🤔 Como contribuir
+## :+1: Como contribuir
 
 - Faça um fork desse repositório;
 - Cria uma branch com a sua feature: `git checkout -b minha-feature`;
@@ -52,4 +62,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Feito com ❤️ by **Rocketseat/styllth**
+Feito com :heart: por [Styllth Saraiva Ribeiro](https://github.com/styllth)
