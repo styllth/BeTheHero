@@ -1,0 +1,3 @@
+class Ong {
+	//ToDo
+}
