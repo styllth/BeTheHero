@@ -1,36 +1,57 @@
-import crypto from 'crypto';
-import conection from '../../database/conection';
+import connection from '../../database/connection';
+import generateUniqueId from '../../utils/generateUniqueId';
+import mailer from '../../modules/mailer';
 
 class OngController {
-  async index(request, response) {
-    const ongs = await conection('ongs').select('*');
+	async index(request, response) {
+		try {
+			const ongs = await connection('ongs').select('*');
 
-    return response.json(ongs);
-  }
+			return response.json(ongs);
+		} catch (error) {}
+	}
 
-  async store(request, response) {
-    const { name, email, whatsapp, city, uf } = request.body;
+	async store(request, response) {
+		try {
+			const { name, email, whatsapp, city, uf } = request.body;
 
-    const id = crypto.randomBytes(4).toString('HEX');
+			const id = await generateUniqueId();
 
-    await conection('ongs').insert({
-      id,
-      name,
-      email,
-      whatsapp,
-      city,
-      uf,
-    });
-    return response.json({ id });
-  }
+			await connection('ongs').insert({
+				id,
+				name,
+				email,
+				whatsapp,
+				city,
+				uf,
+			});
 
-  async update(request, response) {
-    return response.json({});
-  }
+			await mailer.sendMail(
+				{
+					from: '"Be The Hero 🦸🏽‍♂️" <bethehero@email.com>', // sender address
+					to: email,
+					subject: 'ID de acesso', // Subject line
+					template: 'ongs/sendOngId',
+					context: { id, name },
+				},
+				(err) => {
+					if (err) {
+						throw err;
+					}
+				}
+			);
 
-  async destroy(request, response) {
-    return response.json({});
-  }
+			return response.json({ id });
+		} catch (error) {}
+	}
+
+	async update(request, response) {
+		return response.json({});
+	}
+
+	async destroy(request, response) {
+		return response.json({});
+	}
 }
 
 export default new OngController();

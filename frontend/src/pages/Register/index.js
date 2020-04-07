@@ -8,6 +8,9 @@ import './styles.css';
 import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
+import BackLink from '~/components/BackLink';
+import Input from '~/components/Input';
+import Button from '~/components/Button';
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -52,40 +55,40 @@ export default function Register() {
             os casos da sua ONG.
           </p>
 
-          <Link className="back-link" to="/">
+          <BackLink to="/">
             <FiArrowLeft size={16} color="#E02041" />
             Voltar para o Logon
-          </Link>
+          </BackLink>
         </section>
 
         <form onSubmit={handleRegister}>
-          <input
+          <Input
             placeholder="Nome da ONG"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
 
-          <input
+          <Input
             type="email"
             placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          <input
+          <Input
             placeholder="WhatsApp"
             value={whatsapp}
             onChange={(e) => setWhatsapp(e.target.value)}
           />
 
           <div className="input-group">
-            <input
+            <Input
               placeholder="Cidade"
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
 
-            <input
+            <Input
               placeholder="UF"
               style={{ width: 80 }}
               value={uf}
@@ -93,9 +96,7 @@ export default function Register() {
             />
           </div>
 
-          <button className="button" type="submit">
-            Cadastrar
-          </button>
+          <Button type="submit">Cadastrar</Button>
         </form>
       </div>
     </div>

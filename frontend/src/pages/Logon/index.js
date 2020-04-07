@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,6 +11,9 @@ import './styles.css';
 
 import heroesImg from '../../assets/heroes.png';
 import logoImg from '../../assets/logo.svg';
+import Button from '~/components/Button';
+import BackLink from '~/components/BackLink';
+import Input from '~/components/Input';
 
 export default function Logon() {
   const [id, setId] = useState('');
@@ -26,7 +29,7 @@ export default function Logon() {
       localStorage.setItem('ongId', id);
       localStorage.setItem('ongName', ong.name);
 
-      history.push('/profile');
+      history.push('/dashboard');
     } catch (err) {
       toast.error('Falha no login, tente novamente!');
     }
@@ -39,19 +42,16 @@ export default function Logon() {
 
         <form onSubmit={handleLogin}>
           <h1> Faça seu logon </h1>
-
-          <input
+          <Input
             placeholder="Sua ID"
             value={id}
             onChange={(e) => setId(e.target.value)}
           />
-          <button className="button" type="submit">
-            Entrar
-          </button>
-          <Link to="/register" className="back-link">
+          <Button type="submit">Entrar</Button>
+          <BackLink to="/register">
             <FiLogIn size={16} color="#e02041" />
             Não tenho cadastro
-          </Link>
+          </BackLink>
         </form>
       </section>
       <img src={heroesImg} alt="Heroes" />

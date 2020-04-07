@@ -3,6 +3,7 @@ import 'dotenv/config';
 import cors from 'cors';
 import express from 'express';
 import 'express-async-errors';
+import { errors } from 'celebrate';
 import Youch from 'youch';
 
 import routes from './routes';
@@ -14,6 +15,7 @@ class App {
 		this.cors();
 		this.middlewares();
 		this.routes();
+		this.exceptionValidators();
 		this.exceptionHandler();
 	}
 
@@ -44,6 +46,10 @@ class App {
 
 			return res.status(500).json({ error: 'Internal server error' });
 		});
+	}
+
+	exceptionValidators() {
+		this.server.use(errors());
 	}
 }
 

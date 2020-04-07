@@ -8,6 +8,10 @@ import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
 
+import BackLink from '~/components/BackLink';
+import Input, { Textarea } from '~/components/Input';
+import Button from '~/components/Button';
+
 export default function NewIncident() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -48,32 +52,29 @@ export default function NewIncident() {
             isso.
           </p>
 
-          <Link to="/profile" className="back-link">
+          <BackLink to="/profile">
             <FiArrowLeft size={16} color="#e02041" />
             Voltar para dashboard
-          </Link>
+          </BackLink>
         </section>
 
         <form onSubmit={handleNewIncident}>
-          <input
+          <Input
             placeholder="Título do caso"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-          <textarea
+          <Textarea
             placeholder="Descrição"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <input
+          <Input
             placeholder="Valor em reais"
             value={value}
             onChange={(e) => setValue(e.target.value)}
           />
-
-          <button className="button" type="submit">
-            Cadastrar
-          </button>
+          <Button type="submit">Cadastrar</Button>
         </form>
       </div>
     </div>

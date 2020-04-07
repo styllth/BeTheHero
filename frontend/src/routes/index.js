@@ -3,22 +3,21 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Logon from '../pages/Logon';
 import Register from '../pages/Register';
-import Profile from '../pages/Profile';
+import Dashboard from '../pages/Dashboard';
 import NewIncident from '../pages/NewIncident';
 import NotFoundPage from '../pages/ErrorsPage/page404';
 
-import PrivateRoute from '../components/PrivateRoute';
+import PrivateRoute from '../middlewares/PrivateRoute';
+import IsLogged from '../middlewares/IsLogged';
 
 export default () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={Logon} />
-        <Route path="/register" component={Register} />
-        <PrivateRoute path="/profile" component={Profile} />
+        <IsLogged path="/" exact component={Logon} />
+        <IsLogged path="/register" component={Register} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
         <PrivateRoute path="/incidents/new" component={NewIncident} />
-        {/* <Route path="/profile" component={Profile} />
-        <Route path="/incidents/new" component={NewIncident} /> */}
         <Route component={NotFoundPage} />
       </Switch>
     </BrowserRouter>

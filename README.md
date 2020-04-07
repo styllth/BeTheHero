@@ -35,11 +35,11 @@ O **Be The Hero** é um projeto que visa conectar pessoas interessadas em ajudar
 
 ## :bulb: Modificações
 
-1. Quando o usuário estiver logado e acessando o login, ele será redirecionado para o perfil novamente
-2. Se o usuário não estiver logado e acessar a rota 'perfil', ele será redirecionado para a tela inicial
-3. Envie um email para a ONG com o ID de autenticação após registrar o mesmo
-4. Corrigido o erro de identificação corrigido (anteriormente era possível gerar duas identificações idênticas)
-5. Tema Escuro e Tema Claro, tanto na Web quanto em dispositivos móveis
+1. Se o usuário estiver logado e acessar o login, ele será redirecionado para o 'dashboard'.
+2. Se o usuário não estiver logado ele será redirecionado para o 'logon'.
+3. Corrigido o erro de identificação (anteriormente era possível gerar duas identificações idênticas)
+4. Enviar um email para a ONG com o ID de autenticação após registrar.
+5. Tema Escuro e Tema Claro
 6. Front-end responsivo
 7. Alertas personalizados
 
